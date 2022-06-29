@@ -1,11 +1,11 @@
 # use a centos base image
-FROM tomcat
+FROM centos
+
+# update our server
+RUN yum update -y
 
 # set maintainer
 LABEL maintainer "info@apotians.com"
-
-# This command will copy our war file into the docker image we are creating
-COPY ./webapp/target/webapp.war /usr/local/tomcat/webapps
 
 # set a health check
 # HEALTHCHECK --interval=5s \
